@@ -40,8 +40,11 @@ body {
     grid-template-rows: 80vh min-content 40vw repeat(3, min-content); 
     grid-template-columns: [sidebar-start] 8rem[sidebar-end full-start] minmax(6rem, 1fr) [center-start]repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; //1 fr centers, in absence of sidebar use justify content or margin auto zero. perfect for full bleed sections-- minmax(6rem, 1fr) ensures there is always a (60px) margin between the col and end of page--
 
-    & > * { //parent and all children to the right
+    /*& > * { --parent and all children to the right just for testing purposes
         padding: 40px;
         font-size: 3rem;
-    }
+    }*/
+
+    
+
 }
