@@ -1,4 +1,96 @@
 .homes {
-    background-color: $color-secondary;
     grid-column: center-start / center-end;
+    margin: 15rem 0;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); //auto/min/fr ensures responsiveness w/out any media queries
+    gap: 7rem;
+}
+
+.home {
+    background-color: $color-grey-light-1;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 3.5rem; //creates a gap between name element and location element
+
+
+
+    &__img {
+
+        grid-row: 1 /2; //specifies the like as row and positions the like over the image, allowing for overlapping
+        width: 100%;
+        grid-column: 1 / -1;
+        z-index: 1; //z-index lower than the like places it under the like
+        
+    }
+
+    &__like {
+
+        grid-row: 1 /2;
+        grid-column: 2 / 3;
+        fill: $color-primary;
+        height: 2.5rem;
+        width: 2.5rem;
+        z-index: 2; //higher z-index on the like places it on top of the img 
+        justify-self: end;//aligns the item inside of the grid-cell
+        margin: 1rem; //positions element down and to the right
+
+
+    }
+
+    &__name {
+        
+        grid-row: 1 / 2;
+        grid-column: 1 / -1;
+        justify-self: center; //justify adjusts horizontally in the row-axis
+        align-self: end; // align adjusts vertically in the column-axis
+        z-index: 3;
+
+        width: 80%;
+        font-family: $font-display;
+        font-size: 1.6rem;
+        text-align: center;
+        padding: 1.25rem;
+        background-color: $color-secondary;
+        color: #fff;
+        font-weight: 400;
+       // margin: 0; works much like transform: translateY
+        transform: translateY(100%) //calculates 50% of the height of the element and centers it--> CHECK WHY THIS HAS TO BE 100 AND NOT 50
+
+    }
+
+    &__location,
+    &__rooms {
+        margin-top: 2.5rem;
+
+    }
+
+    &__location,
+    &__rooms,
+    &__area,
+    &__price {
+
+        display: flex; //positions elements side by side
+        align-items: center;
+
+        font-size: 1.5rem;
+        margin-left: 2rem;
+
+        svg {
+            fill: $color-primary;
+            height: 2rem;
+            width: 2rem;
+            //gap: 1rem; CHECK
+            margin: 1rem;
+
+        }  
+
+    }
+
+    &__btn {
+        grid-column: 1 / -1; //1 / -1 spans the columns
+    }
+
+
 }
