@@ -24,7 +24,6 @@
         justify-self: start;
     }
 
-
     &__seenon-text {
         display: grid;
         grid-template-columns: 1fr max-content 1fr; //fr unit keeps elements in place when the sizes of rows change to fit viewport height
@@ -56,8 +55,6 @@
             height: 2.5rem;
         }
 
-    }
-
-  
+    } 
 }
 
