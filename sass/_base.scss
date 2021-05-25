@@ -14,6 +14,12 @@ $color-grey-dark-2: #6D5D4B;
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
+//RESPONSIVE BREAKPOINTS
+$bp-largest: 75em; //1200px
+$bp-large: 62.5em; //1000px
+$bp-medium: 50em; //800px
+$bp-small: 37.5em; //600px
+
 // GLOBAL SETTINGS RESET
 *
 *::before,
@@ -26,6 +32,11 @@ $font-display: 'Josefin Sans', sans-serif;
 html {
     box-sizing: border-box;
     font-size: 62.5%; //10px/16px = 62.5% -> 1rem = 10px
+
+    @media only screen and (max-width: $bp-largest) {
+        font-size: 50%;
+    }
+
 }
 
 body {
@@ -38,13 +49,24 @@ body {
 .container {
     display: grid;
     grid-template-rows: 80vh min-content 40vw repeat(3, min-content); 
-    grid-template-columns: [sidebar-start] 8rem[sidebar-end full-start] minmax(6rem, 1fr) [center-start]repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; //1 fr centers, in absence of sidebar use justify content or margin auto zero. perfect for full bleed sections-- minmax(6rem, 1fr) ensures there is always a (60px) margin between the col and end of page--
+    grid-template-columns: [sidebar-start] 8rem[sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; 
+    
+    /*1 fr centers, in absence of sidebar use justify content or margin auto zero. perfect for full bleed sections-- minmax(6rem, 1fr) ensures there is always a (60px) margin between the col and end of page--
+    Naming cols will assist when creating media queiries*/
 
-    /*& > * { --parent and all children to the right just for testing purposes
+    @media only screen and (max-width: $bp-large) {
+        grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content); 
+        grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+        
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-rows: 6rem calc(100vh - 6rem); //sidebar,header styled all else is implicit grid--calc function recalculates the 6 rem set to the sidebar  
+    }
+
+    /*& > * { --parent and all children to the right just for testing purposes during initial design
         padding: 40px;
         font-size: 3rem;
     }*/
-
-    
 
 }

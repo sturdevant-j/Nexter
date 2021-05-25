@@ -9,6 +9,10 @@
     justify-items: center;
     row-gap: 2rem;
 
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+    }
+
     &__list {
         display: grid;
         grid-template-columns: min-content max-content; //sets to 7rem with img, max prevents line breakage
@@ -16,6 +20,13 @@
         row-gap: 5vh;
         align-items: center;
 
+        @media only screen and (max-width: $bp-medium) {
+            grid-template-columns: repeat(3, min-content max-content);
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            grid-template-columns: min-content max-content; //places img in vertical position
+        }
     }
 
     &__img {
